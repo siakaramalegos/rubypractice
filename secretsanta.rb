@@ -1,5 +1,20 @@
 # Secret Santa App
 
+# Get givers method
+def givers_method
+  puts "Exciting!  How many secret santas do you have?"
+  num_santas = gets.chomp.to_i
+  i = 1
+  givers = []
+  while i <= num_santas
+    puts "What is the name of Santa #{i}?"
+    givers.push(gets.chomp.to_s)
+    i+=1
+  end
+  givers
+end
+
+
 # Matching method
 def match_method (givers)
   # Make a copy of givers to put in array  of eligible receivers which will
@@ -47,9 +62,20 @@ def match_method (givers)
   end
 end
 
+# ********************* Beginning of code (not including method definitions)
 
-# Get list of names and put in array
-givers = ["Sia", "Courtney", "Nicky", "Melissa", "Gigi"]
+puts "Welcome to the Secret Santa app!  Would you like to use your own list
+of santas or use a default list already in the program? Type 'own' or 'default'."
+answer = gets.chomp.to_s
+# Builds list of givers either from user input or hard-coded default.
+if answer == "own"
+  givers = givers_method
+elsif answer == "default"
+  givers = ["Ruby", "Java", "Python", "Scratch", "Fortran"]
+else
+  puts "Hmm, that wasn't an option so we'll just use the default list."
+  givers = ["Ruby", "Java", "Python", "Scratch", "Fortran"]
+end
 puts "Givers are #{givers}"
 
 final_matching = match_method(givers)
