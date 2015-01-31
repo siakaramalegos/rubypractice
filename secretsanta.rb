@@ -1,22 +1,28 @@
+# TODO:  change to a method so if last one is matched to self, redo all matching.
 # Secret Santa App
 
 # Get list of names and put in array
 givers = ["Sia", "Courtney", "Nicky", "Melissa", "Gigi"]
-puts "givers are #{givers}"
+puts "Givers are #{givers}"
 
-# Make a copy
+# Make a copy of givers to put in array  of eligible receivers which will
+# remove members once they are selected as a receiver.
 receivers = []
 for giver in givers
   receivers << giver
 end
 
+# Shuffle receivers which will effectively give us a random match pairing.
 receivers.shuffle!
-puts "receivers are #{receivers}"
 
+# Create a new hash (dictionary) which will contain giver:receiver pairs.
 match_hash = Hash.new
 
+# For each giver in the array of givers, match them up with a receiver.
 for giver in givers
-  puts "giver is #{giver}"
+  # Uncomment the next 2 puts lines if you want to watch what is happening.
+  # puts "Giver is #{giver}"
+  # puts "Eligible receivers are #{receivers}"
   i = 0
   match_made = false
   while match_made == false
@@ -24,36 +30,13 @@ for giver in givers
       i += 1
     else
       match_hash[giver] = receivers[i]
-      puts match_hash
-      puts "----"
+      # Uncomment the next 2 lines if you want to watch what is happening.
+      # puts match_hash
+      # puts "----"
       receivers.delete(receivers[i])
-      puts "Remaining receivers are #{receivers}"
       match_made = true
     end
   end
 end
 
-puts "------"
-puts match_hash
-
-
-# Match each giver with a receiver who is not themselves
-# i = 0
-# while i < givers.length
-#   giver = givers[i]
-#   puts "Giver = #{giver}"
-#   puts "Receivers = #{receivers}"
-#   #givers.pop
-
-#   receivers.delete(giver)
-#   receiver = receivers.sample
-#   puts "The giver #{giver} will give a gift to #{receiver}"
-
-#   puts "---"
-#   receivers << giver
-#   i += 1
-
-# end
-
-
-# Return matching
+puts "The matches are #{match_hash}"
