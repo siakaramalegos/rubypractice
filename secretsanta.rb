@@ -64,10 +64,11 @@ end
 
 # ********************* Beginning of code (not including method definitions)
 
+# First, builds list of givers either from user input or hard-coded default.
 puts "Welcome to the Secret Santa app!  Would you like to use your own list
 of santas or use a default list already in the program? Type 'own' or 'default'."
 answer = gets.chomp.to_s
-# Builds list of givers either from user input or hard-coded default.
+
 if answer == "own"
   givers = givers_method
 elsif answer == "default"
@@ -78,6 +79,26 @@ else
 end
 puts "Givers are #{givers}"
 
+# Second, creates matches and either outputs the full matching or only for
+# one person.
 final_matching = match_method(givers)
 
-puts "The matches are #{final_matching}"
+puts "Would you like to see the full list of matches or only one pairing?
+  Type 'full' or 'one'."
+answer2 = gets.chomp.to_s
+
+if answer2 == 'full'
+  puts "The matches are #{final_matching}"
+else
+  keep_going = 'y'
+  while keep_going == 'y'
+    puts "Give me a santa name, and I will give you their match."
+    santa_name = gets.chomp.to_s
+    individual_match = final_matching[santa_name]
+    puts "#{santa_name} is the secret santa for #{individual_match}!"
+    puts "Would you like to keep going? (y/n)"
+    keep_going = gets.chomp.to_s
+  end
+end
+
+puts "\nThanks for playing with the Secret Santa app!!"
