@@ -2,6 +2,7 @@
 
 # Get list of names and put in array
 givers = ["Sia", "Courtney", "Nicky", "Melissa", "Gigi"]
+puts "givers are #{givers}"
 
 # Make a copy
 receivers = []
@@ -10,25 +11,30 @@ for giver in givers
 end
 
 receivers.shuffle!
+puts "receivers are #{receivers}"
 
-matches = []
+match_hash = Hash.new
 
 for giver in givers
+  puts "giver is #{giver}"
   i = 0
-  while i < receivers.length
-    if giver != receivers[i]
-      matches.push(receivers[i])
+  match_made = false
+  while match_made == false
+    if giver == receivers[i]
+      i += 1
+    else
+      match_hash[giver] = receivers[i]
+      puts match_hash
+      puts "----"
       receivers.delete(receivers[i])
+      puts "Remaining receivers are #{receivers}"
+      match_made = true
     end
-    i+=1
   end
 end
 
-
-puts givers
 puts "------"
-puts matches
-
+puts match_hash
 
 
 # Match each giver with a receiver who is not themselves
