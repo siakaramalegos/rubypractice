@@ -95,3 +95,15 @@
 #   puts "#{n} fish"
 # end
 # puts "blue fish"
+
+# ********************************************************************** Begin end until
+
+def first_test
+  puts "What is 1 + 2?"
+  gets.chomp.to_i
+end
+
+
+begin
+  test1 = first_test
+end until test1 ==3
