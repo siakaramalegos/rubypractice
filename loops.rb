@@ -1,4 +1,4 @@
-# 1. Using a loop, write a method that prints “What’s up?” ten times.
+## 1. Using a loop, write a method that prints “What’s up?” ten times.
 
 # 10.times do
 #   puts "What's up?"
