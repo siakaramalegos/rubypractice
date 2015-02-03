@@ -1,3 +1,4 @@
+# TODO:  change hashes to use symbols instead of strings or not?
 # Secret Santa App
 
 # Get givers method
