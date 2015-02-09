@@ -15,6 +15,11 @@ def givers_method
   givers
 end
 
+# for n in 0..(players)
+# x, y = santas, santas.shuffle
+# if x[n] = y[n] then y = santas.shuffle
+
+# zip takes two arrays and puts them together into a new array
 
 # Matching method
 def match_method (givers)
@@ -103,3 +108,18 @@ else
 end
 
 puts "\nThanks for playing with the Secret Santa app!!"
+
+# Mike's solution with zip
+
+# def picker(list_o_names)
+#  names2 = []
+#  list_o_names.shuffle!
+#    list_o_names.each_with_index do |item, index|
+#    names2.insert((index -1), item)
+#  end
+#  hasher = Hash[list_o_names.zip(names2)]
+#  puts hasher
+# end
+
+# picker(names)
+
